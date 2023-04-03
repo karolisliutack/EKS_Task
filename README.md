@@ -7,9 +7,9 @@
 
 Code: https://github.com/karolisliutack/EKS_Task
 
-Atlantis Service Testing: https://github.com/karolisliutack/Luminor_Task_Testing, 
-Pull request opened to test Atlantis Service: https://github.com/karolisliutack/Luminor_Task_Testing/pull/2
+Atlantis Service Testing: https://github.com/karolisliutack/Luminor_Task_Testing
 
+Pull request opened to test Atlantis Service: https://github.com/karolisliutack/Luminor_Task_Testing/pull/2
 
 To expose Atlantis Service Classic LoadBalancer was issued from EKS and dns name was fetched by using terraform null resource   provisioner "local-exec". Load balancer dns name was saved to lb_dns.txt file which was also used to create webhook for github repository so Atlantis service can monitor all of the below events:
  events = [
