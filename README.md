@@ -26,7 +26,7 @@ To expose Atlantis Service Classic LoadBalancer was issued from EKS and dns name
 * AWS credentials configured.
 * kubectl installed.
 
-* Have GitHub Repository create which you want Atlantis services to monitor, in my case: https://github.com/karolisliutack/Luminor_Task_Testing
+* Have GitHub Repository created which you want Atlantis services to monitor, in my case: https://github.com/karolisliutack/Luminor_Task_Testing
 
 ### Deployment Instructions
 * Clone this repository
