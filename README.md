@@ -24,8 +24,6 @@ To expose Atlantis Service Classic LoadBalancer was issued from EKS and dns name
 
 * Edit orgWhitelist for your specific GitHub Project/Repository on helm_release_atlantis.tf file 
 
-* Edit orgWhitelist for your specific GitHub Project/Repository on helm_release_atlantis.tf file 
-
 * Edit repository for your specific GitHub Repository on github-atlantis.tf file
 
 
