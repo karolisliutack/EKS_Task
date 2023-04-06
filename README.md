@@ -12,6 +12,8 @@ To expose Atlantis Service Classic LoadBalancer was issued from EKS and dns name
     "pull_request_review",
     "pull_request_review_comment"
   ]
+  
+Pull Request Opened to test Atlantis: https://github.com/karolisliutack/Luminor_Task_Testing/pull/2
 
  In this example, I'm deploying Atlantis on EKS. It takes about 15 minutes from start to finish. 
 ### Pre-requisites
