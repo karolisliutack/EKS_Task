@@ -108,3 +108,12 @@ variable "atlantis_github_secret" {
   description = "Webhook secret for the GitHub repository monitored by Atlantis"
 }
 
+variable "atlantis_github_repository" {
+  type        = string
+  description = "GitHub repository that will be monitored by Atlantis"
+}
+
+variable "atlantis_github_orgWhitelist" {
+  type        = string
+  description = "Atlantis github orgWhitelist"
+}

@@ -3,7 +3,7 @@ provider "github" {
 }
 
 resource "github_repository_webhook" "atlantis" {
-  repository = "Luminor_Task_Testing"
+  repository = var.atlantis_github_repository
   configuration {
     url = "http://${data.local_file.lb_dns.content}/events"
 

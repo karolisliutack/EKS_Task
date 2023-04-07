@@ -1,8 +1,12 @@
 # DEPLOY HELM CHART - ATLANTIS AND EKS USING TERRAFORM on US-EAST-2 Region
 • 1 VPC
+
 • 2 subnets
+
 • 1 EKS cluster
-• autoscaling workers with min 1, max 3 workers,
+
+• autoscaling workers with min 1, max 3 workers
+
 • K8s RBAC enabled with 2 roles - eks-admin and eks-readonly
 
 To expose Atlantis Service Classic LoadBalancer was issued from EKS and dns name was fetched by using terraform null resource   provisioner "local-exec". Load balancer dns name was saved to lb_dns.txt file which was also used to create webhook for github repository so Atlantis service can monitor all of the below events:
@@ -24,17 +28,24 @@ Pull Request Opened to test Atlantis: https://github.com/karolisliutack/Luminor_
 
 * Have settled GitHub Repository that you want Atlantis to monitor, in my case: https://github.com/karolisliutack/Luminor_Task_Testing
 
-* Edit orgWhitelist for your specific GitHub Project/Repository on helm_release_atlantis.tf file 
+* After running terraform apply you will be asked to provide variables: 
 
-* Edit repository for your specific GitHub Repository on github-atlantis.tf file
+  * atlantis_github_orgWhitelist: in my case - github.com/karolisliutack/*
 
+  * atlantis_github_repository:   in my case - Luminor_Task_Testing
+
+  * atlantis_github_secret:       in my case - random generated
+
+  * atlantis_github_token:        in my case - personal github account token
+
+  * atlantis_github_user:         in my case - karolisliutack
 
 ### Deployment Instructions
 * Clone this repository
 * Edit ```terraform.tfvars``` to match your values.
 * Run a ```terraform init``` to grab providers and modules.
-* Run a ```terraform plan``` to view the plan. You will be asked to enter atlantis_github_secret, atlantis_github_user, atlantis_github_token
-* Run a ```terraform_apply``` and wait 10 - 15 minutes. 
+* Run a ```terraform plan``` to view the plan. You will be asked to enter atlantis_github_secret, atlantis_github_user, atlantis_github_token, atlantis_github_orgWhitelist, atlantis_github_repository 
+* Run a ```terraform_apply``` provide variables and wait 10 - 15 minutes. 
 >Note: If it fails for HTTP timeout while waiting to apply the Helm chart, retry ```terraform_apply```
 * Run ```aws eks --region us-east-2 update-kubeconfig --name dev-cluster``` to add the cluster context to your kubeconfig.
 * Run ```kubectl get pods``` to ensure Atlantis deployed as expected.

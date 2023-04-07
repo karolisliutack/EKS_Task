@@ -28,8 +28,8 @@ resource "kubernetes_role_binding" "admin_binding" {
   }
 
   role_ref {
-    kind = "ClusterRole"
-    name = kubernetes_cluster_role.admin.metadata[0].name
+    kind      = "ClusterRole"
+    name      = kubernetes_cluster_role.admin.metadata[0].name
     api_group = "rbac.authorization.k8s.io"
 
   }
@@ -38,7 +38,7 @@ resource "kubernetes_role_binding" "admin_binding" {
     kind = "User"
     name = "admin@example.com"
   }
-    depends_on = [
+  depends_on = [
     kubernetes_cluster_role.admin,
   ]
 }
@@ -49,8 +49,8 @@ resource "kubernetes_role_binding" "readonly_binding" {
   }
 
   role_ref {
-    kind = "ClusterRole"
-    name = kubernetes_cluster_role.readonly.metadata[0].name
+    kind      = "ClusterRole"
+    name      = kubernetes_cluster_role.readonly.metadata[0].name
     api_group = "rbac.authorization.k8s.io"
 
   }
@@ -59,7 +59,7 @@ resource "kubernetes_role_binding" "readonly_binding" {
     kind = "User"
     name = "readonly@example.com"
   }
-    depends_on = [
+  depends_on = [
     kubernetes_cluster_role.readonly,
   ]
 }

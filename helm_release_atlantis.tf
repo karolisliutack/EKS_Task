@@ -21,7 +21,7 @@ resource "helm_release" "atlantis" {
 
   set {
     name  = "orgWhitelist"
-    value = "github.com/karolisliutack/*"
+    value = var.atlantis_github_orgWhitelist
   }
 
   set {
